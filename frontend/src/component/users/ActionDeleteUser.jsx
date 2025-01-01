@@ -4,23 +4,15 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 
-export default function ActionDeleteUser({ onClose, userData }) {
+export default function ActionDeleteUser({onClose, userData }) {
 const [open, setOpen] = React.useState(true);
-  const handleClose = (event, reason) => {
-    onClose();
-
-    if (reason === 'clickaway') {
-        return;
-      }
   
-      setOpen(false);
-  }  
   return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <Snackbar open={open} autoHideDuration={6000} onClose={onClose}>
       <Alert
         severity="success"
         action={
-          <Button color="inherit" size="small" onClick = {handleClose}>
+          <Button color="inherit" size="small" onClick = {onClose}>
             Close
           </Button>
         }

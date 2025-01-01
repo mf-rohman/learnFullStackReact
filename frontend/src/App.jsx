@@ -2,8 +2,7 @@
 import Home from './component/Home';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
-import User from './component/User';
-import ActionUpdateUser from './component/ActionUpdateUser';
+import User from './component/users/User';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <Routes>
         <Route path = "/" element = {<Home />} />
         <Route path = "/users" element = {<User />} />
-        <Route path = "/users-update" element = {<ActionUpdateUser />} />
       </Routes>
     </Router>
   )

@@ -13,8 +13,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
-import ActionUpdateUser from './ActionUpdateUser';
-import ActionDeleteUser from './ActionDeleteUser';
+import ActionUpdateUser from './ActionUpdateUser';  
+import DialogDelete from './DialogDelete';
 
 
 
@@ -60,7 +60,7 @@ export default function TableUser({userData}) {
   }
   const handleDeleteClose = () => {
     setActionDelete(false);
-    // setUserUpdate(data);
+    setUserUpdate(null);
   }
 
   
@@ -68,11 +68,7 @@ export default function TableUser({userData}) {
 
   return (
     <>
-    {actionDelete && (
-      <ActionDeleteUser
-      userData = {userUpdate}
-      onClose={handleDeleteClose}
-    />)}
+    
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -103,6 +99,13 @@ export default function TableUser({userData}) {
       openDialog = {actionUpdate}
       onClose = {handleClose}
       userData = {userUpdate}
+    />)}
+
+    {actionDelete && (
+      <DialogDelete
+      openDialog={actionDelete}
+      userData = {userUpdate}
+      onClose={handleDeleteClose}
     />)}
 
     
